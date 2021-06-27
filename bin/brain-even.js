@@ -14,10 +14,10 @@ const getAnswer = () => readlineSync.question(`Your answer: `);
 
 
 
-const checkAnswer = (ans, qust) => {
-    const checkEven = (ans % 2 === 0 ? true : false);
+const checkAnswer = (qust, ans) => {
+    const checkEven = (qust % 2 === 0 ? true : false);
 
-    if ((checkEven && qust === 'yes') || (!checkEven && qust === 'no')) {
+    if ((checkEven && ans === 'yes') || (!checkEven && ans === 'no')) {
         return true
     } else return false;
 };
@@ -32,13 +32,14 @@ const startGame = (count = 0) => {
     const qustNumb = showQuestion();
     const ansVal = getAnswer();
     const checkResult = checkAnswer(qustNumb, ansVal);
+    const correctAnswer = (ansVal === 'yes' ? 'no' : 'yes');
 
     if(checkResult) {
         count += 1;
         console.log('Correct!');
     } else {
         count = 0;
-        console.log(`'${ansVal}' is wrong answer ;(. Correct answer was 'no'.\nLet's try again, ${userName}!`);
+        console.log(`'${ansVal}' is wrong answer ;(. Correct answer was '${correctAnswer}'.\nLet's try again, ${userName}!`);
     }
 
     return startGame(count);
