@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import readlineSync from 'readline-sync';
-import  { sayHello } from './brain-games.js';
+import  { sayHello } from '.././brain-games.js';
 
 const showQuestion = () => {
     const randNumb = Math.floor((Math.random() * 1000) + 1);

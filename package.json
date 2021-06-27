@@ -16,19 +16,10 @@
   "bugs": {
     "url": "https://github.com/ElKlaus/frontend-project-lvl1/issues"
   },
+  "homepage": "https://github.com/ElKlaus/frontend-project-lvl1#readme",
   "bin": {
     "brain-games": "bin/brain-games.js",
-    "brain-even": "bin/brain-even.js"
-  },
-  "homepage": "https://github.com/ElKlaus/frontend-project-lvl1#readme",
-  "dependencies": {
-    "readline-sync": "^1.4.10"
-  },
-  "devDependencies": {
-    "eslint": "^7.29.0",
-    "eslint-config-airbnb-base": "^14.2.1",
-    "eslint-plugin-import": "^2.23.4",
-    "eslint-plugin-jest": "^24.3.6",
-    "eslint-plugin-react": "^7.24.0"
+    "brain-even": "bin/games/brain-even.js",
+    "brain-calc": "bin/games/brain-calc.js"
   }
 }
