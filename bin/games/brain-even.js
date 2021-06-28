@@ -1,29 +1,8 @@
 #!/usr/bin/env node
-import readlineSync from 'readline-sync';
-import  { sayHello } from '.././brain-games.js';
-
-const showQuestion = () => {
-    const randNumb = Math.floor((Math.random() * 1000) + 1);
-
-    console.log(`Question: ${randNumb}`);
-
-    return randNumb;
-}
-
-const getAnswer = () => readlineSync.question(`Your answer: `);
-
-
-
-const checkAnswer = (qust, ans) => {
-    const checkEven = (qust % 2 === 0 ? true : false);
-
-    if ((checkEven && ans === 'yes') || (!checkEven && ans === 'no')) {
-        return true
-    } else return false;
-};
+import { sayHello } from '.././brain-games.js';
+import { showQuestion, getAnswer, checkAnswer } from '.././index.js';
 
 const startGame = (count = 0) => {
-    // const userName = sayHello();
 
     if (count === 3) {
         return console.log(`Congratulations, ${userName}!`);
