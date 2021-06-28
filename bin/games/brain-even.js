@@ -2,28 +2,38 @@
 import { sayHello } from '.././brain-games.js';
 import { showQuestion, getAnswer, checkAnswer } from '.././index.js';
 
-const startGame = (count = 0) => {
+const userName = sayHello();
 
-    if (count === 3) {
+const startGame = (tryCount = 0, rightAnstryCount = 0) => {
+
+    if (rightAnstryCount === 3) {
         return console.log(`Congratulations, ${userName}!`);
+    } else if (tryCount === 0) {
+        console.log(`Answer "yes" if the number is even, otherwise answer "no".`);
+    } else if (tryCount === 3 && rightAnstryCount !== 3) {
+        return console.log(`Game over, ${userName}!`);
     }
 
-    const qustNumb = showQuestion();
-    const ansVal = getAnswer();
-    const checkResult = checkAnswer(qustNumb, ansVal);
-    const correctAnswer = (ansVal === 'yes' ? 'no' : 'yes');
+    const genQustExpres = Math.floor((Math.random() * 1000) + 1); //Генерация выражения для вопроса к игроку
+
+    const qustNumb = showQuestion(genQustExpres); //Выводим вопрос и сохраняем в переменную для функции сверки
+
+    const rightAnswer = (qustNumb % 2 === 0 ? 'yes' : 'no'); //Получаем верный ответ
+
+    const userAnswer = getAnswer(); //выводим предложение для ввода ответа и сохраняем для сверки в переменную
+
+    const checkResult = checkAnswer(userAnswer, rightAnswer); //сверяем ответ пользователя с верным ответом
+
+    tryCount += 1;
 
     if(checkResult) {
-        count += 1;
+        rightAnstryCount += 1;
         console.log('Correct!');
     } else {
-        count = 0;
-        console.log(`'${ansVal}' is wrong answer ;(. Correct answer was '${correctAnswer}'.\nLet's try again, ${userName}!`);
+        console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${rightAnswer}'.\nLet's try again, ${userName}!`);
     }
 
-    return startGame(count);
+    return startGame(tryCount, rightAnstryCount);
 };
 
-const userName = sayHello();
-console.log(`Answer "yes" if the number is even, otherwise answer "no".`);
 startGame();

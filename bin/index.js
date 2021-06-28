@@ -1,21 +1,14 @@
 import readlineSync from 'readline-sync';
 
-const showQuestion = () => {
-    const randNumb = Math.floor((Math.random() * 1000) + 1);
+const showQuestion = (quesExpression) => { //выводим вопрос на экран
 
-    console.log(`Question: ${randNumb}`);
+    console.log(`Question: ${quesExpression}`);
 
-    return randNumb;
+    return quesExpression;
 }
 
-const getAnswer = () => readlineSync.question(`Your answer: `);
-
-const checkAnswer = (qust, ans) => {
-    const checkEven = (qust % 2 === 0 ? true : false);
-
-    if ((checkEven && ans === 'yes') || (!checkEven && ans === 'no')) {
-        return true
-    } else return false;
-};
+const getAnswer = () => readlineSync.question(`Your answer: `);                         //сохраняем ответ
+ 
+const checkAnswer = (ans, checkPrd) => String(checkPrd) === String(ans) ? true : false;           //проверяем ответ
 
 export { showQuestion, getAnswer, checkAnswer };
