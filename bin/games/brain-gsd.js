@@ -9,30 +9,22 @@ const startGame = (tryCount = 0, rightAnstryCount = 0) => {
     if (rightAnstryCount === 3) {
         return console.log(`Congratulations, ${userName}!`);
     } else if (tryCount === 0) {
-        console.log(`What is the result of the expression?`);
+        console.log(`Find the greatest common divisor of given numbers.`);
     } else if (tryCount === 3 && rightAnstryCount !== 3) {
         return console.log(`Game over, ${userName}!`);
     }
 
     const genQustExpres = () => { //Генерация выражения для вопроса к игроку
-        const genOperationNumb = Math.floor((Math.random() * 3) + 1),
-              firsPredicat = Math.floor((Math.random() * 100) + 1),
+        const firsPredicat = Math.floor((Math.random() * 100) + 1),
               secondPredicat = Math.floor((Math.random() * 100) + 1);
-        
-        let expression = '',
+
+        let expression = `${firsPredicat} ${secondPredicat}`,
             calcResult = 0,
             resArr = [];
-    
-        if (genOperationNumb === 1) {
-            expression = `${firsPredicat} * ${secondPredicat}`;
-            calcResult = firsPredicat * secondPredicat
-        } else if (genOperationNumb === 2) {
-            expression = `${firsPredicat} - ${secondPredicat}`;
-            calcResult = firsPredicat - secondPredicat
-        } else if (genOperationNumb === 3) {
-            expression = `${firsPredicat} + ${secondPredicat}`;
-            calcResult = firsPredicat + secondPredicat;
-        }
+
+        const iter = (arg1, arg2) => arg2 === 0 ? arg1 : iter(arg2, arg1 % arg2);
+
+        calcResult = iter(firsPredicat, secondPredicat);
 
         resArr.push(expression);
         resArr.push(calcResult);
@@ -45,6 +37,8 @@ const startGame = (tryCount = 0, rightAnstryCount = 0) => {
     showQuestion(generatedArr[0]); //Выводим вопрос и сохраняем в переменную для функции сверки
 
     const rightAnswer = generatedArr[1]; //Получаем верный ответ
+
+
 
     const userAnswer = getAnswer(); //выводим предложение для ввода ответа и сохраняем для сверки в переменную
 
