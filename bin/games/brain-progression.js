@@ -9,22 +9,19 @@ const startGame = (tryCount = 0, rightAnstryCount = 0) => {
     if (rightAnstryCount === 3) {
         return console.log(`Congratulations, ${userName}!`);
     } else if (tryCount === 0) {
-        console.log(`Find the greatest common divisor of given numbers.`);
+        console.log(`What number is missing in the progression?`);
     } else if (tryCount === 3 && rightAnstryCount !== 3) {
         return console.log(`Game over, ${userName}!`);
     }
 
     const genQustExpres = () => { //Генерация выражения для вопроса к игроку
-        const firsPredicat = Math.floor((Math.random() * 100) + 1),
-              secondPredicat = Math.floor((Math.random() * 100) + 1);
+        const progressionLength = Math.floor((Math.random() * 10) + 5),
+              firstItem = () => Math.floor((Math.random() * 100) + 1)
+              progressionStep = () => Math.floor((Math.random() * 20) + 1);
 
-        let expression = `${firsPredicat} ${secondPredicat}`,
-            calcResult = 0,
-            resArr = [];
-
-        const iter = (arg1, arg2) => arg2 === 0 ? arg1 : iter(arg2, arg1 % arg2);
-
-        calcResult = iter(firsPredicat, secondPredicat);
+        const iter = (step) => {
+            
+        };
 
         resArr.push(expression);
         resArr.push(calcResult);
