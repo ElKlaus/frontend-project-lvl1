@@ -11,4 +11,6 @@ const getAnswer = () => readlineSync.question(`Your answer: `);                 
  
 const checkAnswer = (ans, checkPrd) => String(checkPrd) === String(ans) ? true : false;           //проверяем ответ
 
-export { showQuestion, getAnswer, checkAnswer };
+const randomNumber = (from, to) => Math.floor(((Math.random() * to) + from));
+
+export { showQuestion, getAnswer, checkAnswer, randomNumber };

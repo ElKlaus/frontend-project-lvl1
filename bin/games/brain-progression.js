@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { sayHello } from '.././brain-games.js';
-import { showQuestion, getAnswer, checkAnswer } from '.././index.js';
+import { showQuestion, getAnswer, checkAnswer, randomNumber } from '.././index.js';
 
 const userName = sayHello();
 
@@ -15,13 +15,28 @@ const startGame = (tryCount = 0, rightAnstryCount = 0) => {
     }
 
     const genQustExpres = () => { //Генерация выражения для вопроса к игроку
-        const progressionLength = Math.floor((Math.random() * 10) + 5),
-              firstItem = () => Math.floor((Math.random() * 100) + 1)
-              progressionStep = () => Math.floor((Math.random() * 20) + 1);
-
-        const iter = (step) => {
-            
+        const newProgression = () => {
+            const res = [];
+            const step = randomNumber(1, 100);
+          
+            res[0] = randomNumber(1, 100);
+          
+            const iterArr = (arg, count) => {
+              if (count === arg) return res;
+          
+              res.push(res[count - 1] + step);
+          
+              return iterArr(arg, count + 1);
+            };
+          
+            return iterArr(10, 1);
         };
+        
+        const expression = newProgression();
+        const missedIndex = randomNumber(1, 10);
+        const calcResult = `${expression.splice(missedIndex, 1, '..')}`;
+        const resArr = [];
+
 
         resArr.push(expression);
         resArr.push(calcResult);
@@ -29,7 +44,12 @@ const startGame = (tryCount = 0, rightAnstryCount = 0) => {
         return resArr;
     };
 
+
+
+
     const generatedArr = genQustExpres();
+
+
 
     showQuestion(generatedArr[0]); //Выводим вопрос и сохраняем в переменную для функции сверки
 
