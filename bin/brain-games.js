@@ -1,10 +1,10 @@
 #!/usr/bin/env node
-import { getName } from './cli.js';
+import getName from './cli.js';
 
 const sayHello = () => {
-    console.log('Welcome to the Brain Games!');
+  console.log('Welcome to the Brain Games!');
 
-    return getName();
+  return getName();
 };
 
-export { sayHello };
+export default sayHello;
