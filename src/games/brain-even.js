@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 import {
   showQuestion, getAnswer, checkAnswer, sayHello,
 } from '../index.js';
@@ -19,26 +18,13 @@ const startGame = (tryCount = 0, rightAnstryCount = 0) => {
     return console.log(`Game over, ${userName}!`);
   }
 
-  const genQustExpres = () => { // Генерация выражения для вопроса к игроку
-    const firsPredicat = Math.floor((Math.random() * 100) + 1);
-    const secondPredicat = Math.floor((Math.random() * 100) + 1);
-    const expression = `${firsPredicat} ${secondPredicat}`;
-    const resArr = [];
-    const iter = (arg1, arg2) => (arg2 === 0 ? arg1 : iter(arg2, arg1 % arg2));
-    const calcResult = iter(firsPredicat, secondPredicat);
+  const genQustExpres = Math.floor((Math.random() * 1000) + 1);
+  // Генерация выражения для вопроса к игроку
 
-    resArr.push(expression);
-    resArr.push(calcResult);
-
-    return resArr;
-  };
-
-  const generatedArr = genQustExpres();
-
-  showQuestion(generatedArr[0]);
+  const qustNumb = showQuestion(genQustExpres);
   // Выводим вопрос и сохраняем в переменную для функции сверки
 
-  const rightAnswer = generatedArr[1]; // Получаем верный ответ
+  const rightAnswer = (qustNumb % 2 === 0 ? 'yes' : 'no'); // Получаем верный ответ
 
   const userAnswer = getAnswer();
   // выводим предложение для ввода ответа и сохраняем для сверки в переменную
@@ -58,4 +44,4 @@ const startGame = (tryCount = 0, rightAnstryCount = 0) => {
   return startGame(changeTryCount, changeRightAnstryCount);
 };
 
-startGame();
+export default startGame;
