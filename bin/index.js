@@ -1,5 +1,19 @@
 import readlineSync from 'readline-sync';
 
+const getName = () => {
+  const answer = readlineSync.question('May I have your name? ');
+
+  console.log(`Hello, ${answer}!`);
+
+  return answer;
+};
+
+const sayHello = () => {
+  console.log('Welcome to the Brain Games!');
+
+  return getName();
+};
+
 const showQuestion = (quesExpression) => { // выводим вопрос на экран
   console.log(`Question: ${quesExpression}`);
 
@@ -17,5 +31,5 @@ const checkAnswer = (ans, checkPrd) => {
 const randomNumber = (from, to) => Math.floor(((Math.random() * to) + from));
 
 export {
-  showQuestion, getAnswer, checkAnswer, randomNumber,
+  showQuestion, getAnswer, checkAnswer, randomNumber, sayHello,
 };

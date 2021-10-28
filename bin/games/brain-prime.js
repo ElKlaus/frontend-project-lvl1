@@ -1,7 +1,6 @@
 #!/usr/bin/env node
-import sayHello from '../brain-games.js';
 import {
-  showQuestion, getAnswer, checkAnswer, randomNumber,
+  showQuestion, getAnswer, checkAnswer, randomNumber, sayHello,
 } from '../index.js';
 
 const userName = sayHello();
