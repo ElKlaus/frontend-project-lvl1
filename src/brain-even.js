@@ -1,6 +1,6 @@
 import {
   showQuestion, getAnswer, checkAnswer, sayHello,
-} from '../src/index.js';
+} from './index.js';
 
 const userName = sayHello();
 
