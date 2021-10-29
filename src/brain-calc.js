@@ -1,6 +1,6 @@
 import {
-  showQuestion, getAnswer, checkAnswer, randomNumber, sayHello,
-} from '../index.js';
+  showQuestion, getAnswer, checkAnswer, sayHello,
+} from '../src/index.js';
 
 const userName = sayHello();
 
@@ -19,27 +19,24 @@ const startGame = (tryCount = 0, rightAnstryCount = 0) => {
   }
 
   const genQustExpres = () => { // Генерация выражения для вопроса к игроку
-    const newProgression = () => {
-      const res = [];
-      const step = randomNumber(1, 100);
-
-      res[0] = randomNumber(1, 100);
-
-      const iterArr = (arg, count) => {
-        if (count === arg) return res;
-
-        res.push(res[count - 1] + step);
-
-        return iterArr(arg, count + 1);
-      };
-
-      return iterArr(10, 1);
-    };
-
-    const expression = newProgression();
-    const missedIndex = randomNumber(1, 10);
-    const calcResult = `${expression.splice(missedIndex, 1, '..')}`;
+    const genOperationNumb = Math.floor((Math.random() * 3) + 1);
+    const firsPredicat = Math.floor((Math.random() * 100) + 1);
+    const secondPredicat = Math.floor((Math.random() * 100) + 1);
     const resArr = [];
+
+    let expression = '';
+    let calcResult = 0;
+
+    if (genOperationNumb === 1) {
+      expression = `${firsPredicat} * ${secondPredicat}`;
+      calcResult = firsPredicat * secondPredicat;
+    } else if (genOperationNumb === 2) {
+      expression = `${firsPredicat} - ${secondPredicat}`;
+      calcResult = firsPredicat - secondPredicat;
+    } else if (genOperationNumb === 3) {
+      expression = `${firsPredicat} + ${secondPredicat}`;
+      calcResult = firsPredicat + secondPredicat;
+    }
 
     resArr.push(expression);
     resArr.push(calcResult);
@@ -52,7 +49,8 @@ const startGame = (tryCount = 0, rightAnstryCount = 0) => {
   showQuestion(generatedArr[0]);
   // Выводим вопрос и сохраняем в переменную для функции сверки
 
-  const rightAnswer = generatedArr[1]; // Получаем верный ответ
+  const rightAnswer = generatedArr[1];
+  // Получаем верный ответ
 
   const userAnswer = getAnswer();
   // выводим предложение для ввода ответа и сохраняем для сверки в переменную

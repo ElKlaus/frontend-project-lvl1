@@ -1,6 +1,6 @@
 import {
   showQuestion, getAnswer, checkAnswer, sayHello,
-} from '../index.js';
+} from '../src/index.js';
 
 const userName = sayHello();
 
@@ -19,24 +19,12 @@ const startGame = (tryCount = 0, rightAnstryCount = 0) => {
   }
 
   const genQustExpres = () => { // Генерация выражения для вопроса к игроку
-    const genOperationNumb = Math.floor((Math.random() * 3) + 1);
     const firsPredicat = Math.floor((Math.random() * 100) + 1);
     const secondPredicat = Math.floor((Math.random() * 100) + 1);
+    const expression = `${firsPredicat} ${secondPredicat}`;
     const resArr = [];
-
-    let expression = '';
-    let calcResult = 0;
-
-    if (genOperationNumb === 1) {
-      expression = `${firsPredicat} * ${secondPredicat}`;
-      calcResult = firsPredicat * secondPredicat;
-    } else if (genOperationNumb === 2) {
-      expression = `${firsPredicat} - ${secondPredicat}`;
-      calcResult = firsPredicat - secondPredicat;
-    } else if (genOperationNumb === 3) {
-      expression = `${firsPredicat} + ${secondPredicat}`;
-      calcResult = firsPredicat + secondPredicat;
-    }
+    const iter = (arg1, arg2) => (arg2 === 0 ? arg1 : iter(arg2, arg1 % arg2));
+    const calcResult = iter(firsPredicat, secondPredicat);
 
     resArr.push(expression);
     resArr.push(calcResult);
@@ -49,8 +37,7 @@ const startGame = (tryCount = 0, rightAnstryCount = 0) => {
   showQuestion(generatedArr[0]);
   // Выводим вопрос и сохраняем в переменную для функции сверки
 
-  const rightAnswer = generatedArr[1];
-  // Получаем верный ответ
+  const rightAnswer = generatedArr[1]; // Получаем верный ответ
 
   const userAnswer = getAnswer();
   // выводим предложение для ввода ответа и сохраняем для сверки в переменную
