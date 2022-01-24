@@ -64,7 +64,7 @@ const startGame = (tryCount = 0, rightAnstryCount = 0) => {
     changeRightAnstryCount += 1;
     console.log('Correct!');
   } else {
-    console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${rightAnswer}'.\nLet's try again, ${userName}!`);
+    console.log(`'${userAnswer}' is wrong answer, Baddy ;(. Correct answer was '${rightAnswer}'.\nLet's try again, ${userName}!`);
   }
 
   return startGame(changeTryCount, changeRightAnstryCount);
