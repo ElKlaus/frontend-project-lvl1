@@ -30,6 +30,52 @@ const checkAnswer = (ans, checkPrd) => {
 
 const randomNumber = (from, to) => Math.floor(((Math.random() * to) + from));
 
+const startGame = function (genRules) {
+  let tryCount = 0;
+  let rightAnsCount = 0;
+
+  const userName = sayHello();
+
+  console.log(tryCount, rightAnsCount);
+
+  for (;tryCount < 5;) {
+    console.log(tryCount, rightAnsCount);
+
+    if (rightAnsCount === 3) {
+      return console.log(`Congratulations, ${userName}!`);
+    }
+
+    if (tryCount === 0) {
+      console.log('What is the result of the expression?');
+    } else if (tryCount === 3 && rightAnsCount !== 3) {
+      return console.log(`Game over, ${userName}!`);
+    }
+
+    const generatedArr = genRules();
+
+    showQuestion(generatedArr[0]);
+    // Выводим вопрос и сохраняем в переменную для функции сверки
+
+    const rightAnswer = generatedArr[1];
+    // Получаем верный ответ
+
+    const userAnswer = getAnswer();
+    // выводим предложение для ввода ответа и сохраняем для сверки в переменную
+
+    const checkResult = checkAnswer(userAnswer, rightAnswer);
+    // сверяем ответ пользователя с верным ответом
+
+    tryCount += 1;
+
+    if (checkResult) {
+      rightAnsCount += 1;
+      console.log('Correct!');
+    } else {
+      console.log(`'${userAnswer}' is wrong answer, Baddy ;(. Correct answer was '${rightAnswer}'.\nLet's try again, ${userName}!`);
+    }
+  }
+};
+
 export {
-  showQuestion, getAnswer, checkAnswer, randomNumber, sayHello,
+  showQuestion, getAnswer, checkAnswer, randomNumber, sayHello, startGame,
 };
