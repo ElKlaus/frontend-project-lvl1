@@ -28,6 +28,6 @@ const brainCalcRules = () => { // Генерация выражения для �
   return resArr;
 };
 
-// startGame(brainCalcRules);
+const brainCalc = () => startGame(brainCalcRules);
 
-export default startGame(brainCalcRules);
+export default brainCalc;

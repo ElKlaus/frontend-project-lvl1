@@ -30,17 +30,13 @@ const checkAnswer = (ans, checkPrd) => {
 
 const randomNumber = (from, to) => Math.floor(((Math.random() * to) + from));
 
-const startGame = function (genRules) {
+const startGame = (genRules) => {
   let tryCount = 0;
   let rightAnsCount = 0;
 
   const userName = sayHello();
 
-  console.log(tryCount, rightAnsCount);
-
-  for (;tryCount < 5;) {
-    console.log(tryCount, rightAnsCount);
-
+  for (;tryCount !== 4;) {
     if (rightAnsCount === 3) {
       return console.log(`Congratulations, ${userName}!`);
     }
@@ -74,6 +70,8 @@ const startGame = function (genRules) {
       console.log(`'${userAnswer}' is wrong answer, Baddy ;(. Correct answer was '${rightAnswer}'.\nLet's try again, ${userName}!`);
     }
   }
+
+  return false;
 };
 
 export {
