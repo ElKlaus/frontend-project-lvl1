@@ -2,6 +2,8 @@ import {
   startGame,
 } from './index.js';
 
+const brainEvenQuestion = 'Find the greatest common divisor of given numbers.';
+
 const brainGsdRules = () => { // Генерация выражения для вопроса к игроку
   const firsPredicat = Math.floor((Math.random() * 100) + 1);
   const secondPredicat = Math.floor((Math.random() * 100) + 1);
@@ -16,6 +18,6 @@ const brainGsdRules = () => { // Генерация выражения для в
   return resArr;
 };
 
-const brainGsd = () => startGame(brainGsdRules);
+const brainGsd = () => startGame(brainGsdRules, brainEvenQuestion);
 
 export default brainGsd;

@@ -2,6 +2,8 @@ import {
   startGame,
 } from './index.js';
 
+const brainEvenQuestion = 'What is the result of the expression?';
+
 const brainCalcRules = () => { // Генерация выражения для вопроса к игроку
   const genOperationNumb = Math.floor((Math.random() * 3) + 1);
   const firsPredicat = Math.floor((Math.random() * 100) + 1);
@@ -28,6 +30,6 @@ const brainCalcRules = () => { // Генерация выражения для �
   return resArr;
 };
 
-const brainCalc = () => startGame(brainCalcRules);
+const brainCalc = () => startGame(brainCalcRules, brainEvenQuestion);
 
 export default brainCalc;

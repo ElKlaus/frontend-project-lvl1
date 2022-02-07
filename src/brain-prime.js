@@ -2,6 +2,8 @@ import {
   randomNumber, startGame,
 } from './index.js';
 
+const brainEvenQuestion = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+
 const brainPrimeRules = () => { // Генерация выражения для вопроса к игроку
   const resArr = [];
 
@@ -26,6 +28,6 @@ const brainPrimeRules = () => { // Генерация выражения для 
   return resArr;
 };
 
-const brainPrime = () => startGame(brainPrimeRules);
+const brainPrime = () => startGame(brainPrimeRules, brainEvenQuestion);
 
 export default brainPrime;

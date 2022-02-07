@@ -2,6 +2,8 @@ import {
   randomNumber, startGame,
 } from './index.js';
 
+const brainEvenQuestion = 'What number is missing in the progression?';
+
 const brainProgressionRules = () => {
   const newProgression = () => {
     const res = [];
@@ -31,6 +33,6 @@ const brainProgressionRules = () => {
   return resArr;
 };
 
-const brainProgression = () => startGame(brainProgressionRules);
+const brainProgression = () => startGame(brainProgressionRules, brainEvenQuestion);
 
 export default brainProgression;
