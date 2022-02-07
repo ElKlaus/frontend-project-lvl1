@@ -75,5 +75,5 @@ const startGame = (genRules) => {
 };
 
 export {
-  showQuestion, getAnswer, checkAnswer, randomNumber, sayHello, startGame,
+  sayHello, randomNumber, startGame,
 };
