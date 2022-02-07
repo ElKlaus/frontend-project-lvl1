@@ -22,9 +22,10 @@ const brainProgressionRules = () => {
     return iterArr(10, 1);
   };
 
-  const expression = newProgression();
+  const defProgression = newProgression();
   const missedIndex = randomNumber(1, 10);
-  const calcResult = `${expression.splice(missedIndex, 1, '..')}`;
+  const calcResult = defProgression.splice(missedIndex, 1, '..');
+  const expression = defProgression.join(' ');
   const resArr = [];
 
   resArr.push(expression);
