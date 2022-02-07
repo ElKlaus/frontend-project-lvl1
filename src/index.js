@@ -43,7 +43,7 @@ const startGame = (genRules, questProp) => {
 
     if (tryCount === 0) {
       console.log(questProp);
-    } else if (tryCount === 3 && rightAnsCount !== 3) {
+    } else if (tryCount !== rightAnsCount) {
       return console.log(`Game over, ${userName}!`);
     }
 
