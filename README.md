@@ -13,7 +13,7 @@
 <a href="https://asciinema.org/a/cNupu2fBuwaXKZZgu5PsaNCxj" target="_blank"><img src="https://asciinema.org/a/cNupu2fBuwaXKZZgu5PsaNCxj.svg" /></a>
 
 ### Brain-gcd asciinema:
-<a href="https://asciinema.org/a/b2MR3mcJw8gj1mNgvkVjJ66KF" target="_blank"><img src="https://asciinema.org/a/b2MR3mcJw8gj1mNgvkVjJ66KF.svg" /></a>
+<a href="https://asciinema.org/a/AEoigIAAXbrJVEEw0KucxWSdn" target="_blank"><img src="https://asciinema.org/a/AEoigIAAXbrJVEEw0KucxWSdn.svg" /></a>
 
 ### Brain-progression asciinema:
 <a href="https://asciinema.org/a/sWzzY7JqSx1IlkmE2pbanx1Dz" target="_blank"><img src="https://asciinema.org/a/sWzzY7JqSx1IlkmE2pbanx1Dz.svg" /></a>
