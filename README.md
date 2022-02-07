@@ -4,3 +4,5 @@
 <a href="https://codeclimate.com/github/ElKlaus/frontend-project-lvl1/maintainability"><img src="https://api.codeclimate.com/v1/badges/eb698603979aadad815e/maintainability" /></a>
 
 <a href="https://codeclimate.com/github/ElKlaus/frontend-project-lvl1/test_coverage"><img src="https://api.codeclimate.com/v1/badges/eb698603979aadad815e/test_coverage" /></a>
+
+<a href="https://asciinema.org/a/9Lg6BE0UHdPcbzjjITxTdMccn" target="_blank"><img src="https://asciinema.org/a/9Lg6BE0UHdPcbzjjITxTdMccn.svg" /></a>

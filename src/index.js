@@ -30,7 +30,7 @@ const checkAnswer = (ans, checkPrd) => {
 
 const randomNumber = (from, to) => Math.floor(((Math.random() * to) + from));
 
-const startGame = (genRules) => {
+const startGame = (genRules, questProp) => {
   let tryCount = 0;
   let rightAnsCount = 0;
 
@@ -42,7 +42,7 @@ const startGame = (genRules) => {
     }
 
     if (tryCount === 0) {
-      console.log('What is the result of the expression?');
+      console.log(questProp);
     } else if (tryCount === 3 && rightAnsCount !== 3) {
       return console.log(`Game over, ${userName}!`);
     }
